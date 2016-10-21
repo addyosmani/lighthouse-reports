@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-reports",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JSON audits from Lighthouse",
   "repository": "addyosmani/lighthouse-reports",
   "author": {
