@@ -9,9 +9,19 @@ const flags = { mobile: true, loadPage: true }
 const outputMode = 'json'
 const outputPath = 'stdout'
 
+const cleanup = {
+  fns: [],
+  register(fn) {
+    this.fns.push(fn);
+  },
+  doCleanup() {
+    return Promise.all(this.fns.map(c => c()));
+  }
+};
+
 function launchChromeAndRun(address) {
   const launcher = new ChromeLauncher({
-    autoSelectChrome: !cli.selectChrome,
+    autoSelectChrome: true,
   });
 
   cleanup.register(() => launcher.kill());
@@ -30,10 +40,8 @@ function lighthouseRun(address) {
   if (!address) {
     return;
   }
-  return lighthouse(address, flags, config)
+  return lighthouse(address, flags, config);
 }
 
-// TODO: File upstream bug to just expose this in Lighthouse itself
-module.exports = url => {
-    return lighthouseRun(url)
-}
+module.exports.run = lighthouseRun;
+module.exports.launchChromeAndRun = launchChromeAndRun;

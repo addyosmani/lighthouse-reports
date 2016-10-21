@@ -13,7 +13,7 @@ $ npm install --save lighthouse-reports
 ```js
 const lighthouseReporter = require('lighthouse-reports');
 
-lighthouseReporter('https://airhorner.com')
+lighthouseReporter.run('https://airhorner.com')
     .then(data => {
         return data.audits; // do something with the audits
     });
