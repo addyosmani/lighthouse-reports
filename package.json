@@ -1,0 +1,32 @@
+{
+  "name": "lighthouse-reports",
+  "version": "0.1.0",
+  "description": "JSON audits from Lighthouse",
+  "repository": "addyosmani/lighthouse-reports",
+  "author": {
+    "name": "Lighthouse team",
+    "email": "addyosmani@gmail.com",
+    "url": "https://addyosmani.com"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=5"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "chrome": "./node_modules/lighthouse/lighthouse-core/scripts/launch-chrome.sh",
+    "test": "mocha test.js"
+  },
+  "keywords": [
+    "lighthouse",
+    "progressive-web-apps"
+  ],
+  "dependencies": {
+    "lighthouse": "latest"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  }
+}
